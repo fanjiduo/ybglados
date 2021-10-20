@@ -20,14 +20,25 @@ def start():
     state =  requests.get(url2,headers={'cookie': cookie ,'referer': referer,'origin':origin,'user-agent':useragent})
    # print(res)
 
-    if 'message' in checkin.text:
-        mess = checkin.json()['message']
-        if mess == '\u6ca1\u6709\u6743\u9650':
-            requests.get('https://sc.ftqq.com/' + sckey + '.send?text=cookie过期')
-        time = state.json()['data']['leftDays']
-        time = time.split('.')[0]
-        #print(time)
-        notice(time,sckey,sever,mess)
+    dict = {}
+    dict['2532084725_qq'] = "_ga=GA1.2.1461581697.1631507811; koa:sess=eyJ1c2VySWQiOjk5NTY4LCJfZXhwaXJlIjoxNjU3NDI5MDU5NjM3LCJfbWF4QWdlIjoyNTkyMDAwMDAwMH0=; koa:sess.sig=QsLpz_YI-SjEc-EtaCh4LSyzM0Q; _gid=GA1.2.1728200036.1631673727; _gat_gtag_UA_104464600_2=1"
+    dict['wangyingbo0528_gmail'] = "_ga=GA1.2.1461581697.1631507811; _gid=GA1.2.1615168255.1632308837; koa:sess=eyJ1c2VySWQiOjEwMTA1OSwiX2V4cGlyZSI6MTY1ODIzMDI5NDkxNCwiX21heEFnZSI6MjU5MjAwMDAwMDB9; koa:sess.sig=dBFYB29eoIsZh3pdJg4eFhzJpz0"
+    dict['wangyingbo528_126'] = "_ga=GA1.2.1461581697.1631507811; _gid=GA1.2.2032489875.1632628557; koa:sess=eyJ1c2VySWQiOjEwMjE0MywiX2V4cGlyZSI6MTY1ODcxNjAwNDY2NywiX21heEFnZSI6MjU5MjAwMDAwMDB9; koa:sess.sig=xoW6EP40mx5agTgPW-9xYrwZ3-U"
+    
+    for key in dict:
+        checkin = requests.post(url,headers={'cookie': dict[key] ,'referer': referer,'origin':origin,'user-agent':useragent,'content-type':'application/json;charset=UTF-8'},data=json.dumps(payload))
+        state =  requests.get(url2,headers={'cookie': dict[key] ,'referer': referer,'origin':origin,'user-agent':useragent})
+        # print(res)
+
+        if 'message' in checkin.text:
+            mess = checkin.json()['message']
+            if mess == '\u6ca1\u6709\u6743\u9650':
+                requests.get('https://sc.ftqq.com/' + sckey + '.send?text=' + key + '账号cookie过期')
+            time = state.json()['data']['leftDays']
+            time = time.split('.')[0]
+            #print(time)
+            messStr = key + ', ' + mess
+            notice(time,sckey,sever,messStr)
 
         
 def notice(time,sckey,sever,mess):
