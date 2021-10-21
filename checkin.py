@@ -2,7 +2,7 @@ import requests ,os,json
 # server酱开关，填0不开启(默认)，填2同时开启cookie失效通知和签到成功通知
 sever = 'off'
 # 填写server酱sckey,不开启server酱则不用填（自己更改）
-sckey = 'SCT75671TiWKF1dbphIIzWwwqbCzmcpI4'
+sckey = ''
 # 填入glados账号对应cookie
 cookie = '_ga=GA1.2.1461581697.1631507811; _gid=GA1.2.1615168255.1632308837; koa:sess=eyJ1c2VySWQiOjEwMTA1OSwiX2V4cGlyZSI6MTY1ODIzMDI5NDkxNCwiX21heEFnZSI6MjU5MjAwMDAwMDB9; koa:sess.sig=dBFYB29eoIsZh3pdJg4eFhzJpz0'
 referer = 'https://glados.rocks/console/checkin'
