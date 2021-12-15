@@ -19,8 +19,8 @@ def start():
     
     dict = {}
     dict['key1'] = "first_cookie"
-    dict['key2'] = "second_cookie"
-    dict['key3'] = "third_cookie"
+    #dict['key2'] = "second_cookie"
+    #dict['key3'] = "third_cookie"
     
     for key in dict:
         checkin = requests.post(url,headers={'cookie': dict[key] ,'referer': referer,'origin':origin,'user-agent':useragent,'content-type':'application/json;charset=UTF-8'},data=json.dumps(payload))
