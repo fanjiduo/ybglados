@@ -1,8 +1,8 @@
 import requests ,os,json
 # server酱开关，填0不开启(默认)，填2同时开启cookie失效通知和签到成功通知
-sever = 'off'
+sever = 'on'
 # 填写server酱sckey,不开启server酱则不用填（自己更改）
-sckey = ''
+sckey = 'SCT112056TrLbOea3lI86gJpm3upucEaow'
 # 填入glados账号对应cookie
 cookie = ''
 referer = 'https://glados.rocks/console/checkin'
@@ -18,7 +18,7 @@ def start():
     }
     
     dict = {}
-    dict['key1'] = "first_cookie"
+    dict['fanjiduo_163'] = "_ga=GA1.2.1494940055.1641987501; _gid=GA1.2.87403142.1641987501; koa:sess=eyJ1c2VySWQiOjEyNDkxMywiX2V4cGlyZSI6MTY2NzkwNzU1NTM5MywiX21heEFnZSI6MjU5MjAwMDAwMDB9; koa:sess.sig=uvb7YJ0Y1St0RGygZp9fA6sJGW0; _gat_gtag_UA_104464600_2=1"
     #dict['key2'] = "second_cookie"
     #dict['key3'] = "third_cookie"
     
